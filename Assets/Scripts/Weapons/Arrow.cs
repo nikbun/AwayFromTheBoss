@@ -8,6 +8,9 @@ public class Arrow : MonoBehaviour
 	[SerializeField] private float startSpeed;
 	[SerializeField] private float disappearingTime;
 
+	[Header("Звуки")]
+	[SerializeField] private AudioClip chpock;
+
 	private bool isHit;
 
 	private const float destroyTime = 5f;
@@ -21,6 +24,7 @@ public class Arrow : MonoBehaviour
 	{
 		if (!isHit)
 		{
+			Audio.Instance.PlaySound(chpock, this.transform, true);
 			isHit = true;
 			var infected = collision.collider.GetComponent<Infected>();
 			if (infected != null)

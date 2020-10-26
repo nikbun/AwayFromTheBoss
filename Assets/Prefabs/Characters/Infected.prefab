@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1121644955060122705}
   - component: {fileID: 418872901198110850}
   - component: {fileID: 9003399782280858738}
-  - component: {fileID: 2167143079322353140}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119678117271564519}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7493494906379691881}
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2167143079322353140
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119678117271564519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &5883218657015960954
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +90,7 @@ GameObject:
   - component: {fileID: 7493494906379691881}
   - component: {fileID: 1600486828646156733}
   - component: {fileID: 3684840029443135236}
+  - component: {fileID: 368179278}
   - component: {fileID: 8006561710384901749}
   - component: {fileID: 6281527517297842345}
   - component: {fileID: 3535140214563849416}
@@ -162,6 +148,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &368179278
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883218657015960954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &8006561710384901749
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c909723823eb24da4ba3f80ded9c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 368179278}
   animator: {fileID: 6281527517297842345}
   maxHealth: 5
   strikesFrequency: 2

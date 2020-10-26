@@ -5,9 +5,10 @@ using UnityEngine.AI;
 using System.Linq;
 using System;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent), typeof(Collider))]
 public class Infected : MonoBehaviour
 {
+	[SerializeField] private Collider collider;
 	[SerializeField] private HumanAnimator animator;
 	[SerializeField] private float maxHealth;
 	[Tooltip("Частота ударов в секундах.")]
@@ -86,13 +87,14 @@ public class Infected : MonoBehaviour
 		{
 			Die();
 		}
-		Debug.Log(String.Format("-1 здоровье зомби. \n Осталось: {0}", health));
+		Debug.Log(String.Format("-1 здоровье зомби. Осталось: {0}", health));
 	}
 
 	private void Die()
 	{
 		isDead = true;
 		navMeshAgent.ResetPath();
+		collider.enabled = false;
 		animator.SetParameter(HumanAnimator.Trigers.Death);
 		Destroy(this.gameObject, destroyTime);
 	}

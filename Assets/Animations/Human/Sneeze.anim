@@ -528,4 +528,12 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 75c0e49ef1cd8db459b6f741094f7860,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

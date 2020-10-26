@@ -15,4 +15,18 @@ public class HumanAnimator : AbstractAnimator<Enum, Enum, HumanAnimator.Bools, H
 		Sneeze,
 		Death
 	}
+
+	/// <summary>
+	/// Для привязки звука к событиям анимации
+	/// </summary>
+	/// <param name="clip"></param>
+	public void PlaySound(AudioClip clip)
+	{
+		Audio.Instance.PlaySound(clip, transform);
+	}
+
+	public void PlaySoundRandomPitch(AudioClip clip)
+	{
+		Audio.Instance.PlaySound(clip, transform, true);
+	}
 }
