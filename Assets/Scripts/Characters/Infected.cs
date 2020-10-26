@@ -6,8 +6,9 @@ using System.Linq;
 using System;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Zombie : MonoBehaviour
+public class Infected : MonoBehaviour
 {
+	[SerializeField] private HumanAnimator animator;
 	[SerializeField] private float maxHealth;
 	[Tooltip("Частота ударов в секундах.")]
 	[SerializeField] private float strikesFrequency;
@@ -17,6 +18,9 @@ public class Zombie : MonoBehaviour
 	private NavMeshAgent navMeshAgent;
 	private float strikeTimer = 0f;
 	private float health;
+	private bool isDead;
+
+	private const float destroyTime = 5f;
 
 	private void Start()
 	{
@@ -26,13 +30,20 @@ public class Zombie : MonoBehaviour
 
 	private void Update()
 	{
-		if (FindTarget(out var target))
+		if (!isDead)
 		{
-			navMeshAgent.SetDestination(target);
-		}
+			if (FindTarget(out var target))
+			{
+				navMeshAgent.SetDestination(target);
+				
+			}
+			animator.SetParameter(HumanAnimator.Bools.Walk, navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance);
 
-		if (strikeTimer > 0)
-			strikeTimer -= Time.deltaTime;
+			if (strikeTimer > 0)
+			{
+				strikeTimer -= Time.deltaTime;
+			}
+		}
 	}
 
 	private bool FindTarget(out Vector3 target)
@@ -53,13 +64,17 @@ public class Zombie : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		var human = other.GetComponent<IHuman>();
-		if (human != null)
+		if (!isDead)
 		{
-			if (strikeTimer <= 0)
+			var human = other.GetComponent<IHuman>();
+			if (human != null)
 			{
-				human.Damage();
-				strikeTimer = strikesFrequency;
+				if (strikeTimer <= 0)
+				{
+					animator.SetParameter(HumanAnimator.Trigers.Sneeze);
+					human.Damage();
+					strikeTimer = strikesFrequency;
+				}
 			}
 		}
 	}
@@ -67,6 +82,18 @@ public class Zombie : MonoBehaviour
 	public void Damage()
 	{
 		health--;
+		if (!isDead && health <= 0)
+		{
+			Die();
+		}
 		Debug.Log(String.Format("-1 здоровье зомби. \n Осталось: {0}", health));
+	}
+
+	private void Die()
+	{
+		isDead = true;
+		navMeshAgent.ResetPath();
+		animator.SetParameter(HumanAnimator.Trigers.Death);
+		Destroy(this.gameObject, destroyTime);
 	}
 }

@@ -7,9 +7,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour, IHuman
 {
+	[SerializeField] private HumanAnimator animator;
 	[SerializeField] private UsableCheker usableCheker;
 	[SerializeField] private float maxHealth;
 	[SerializeField] private float moveSpeed;
+	[Space]
+	[SerializeField] private Crossbow crossbow;
 
 	private Rigidbody rigidbody;
 	private float health;
@@ -24,11 +27,15 @@ public class Player : MonoBehaviour, IHuman
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && usableCheker.IsUsable) 
+		if (Input.GetKeyDown(KeyCode.E) && usableCheker.IsUsable)
+		{
 			usableCheker.Use();
+		}
 
 		if (Input.GetKeyDown(KeyCode.Mouse0))
-			Shoot();
+		{
+			Attack();
+		}
 
 		RotateToMouse();
 	}
@@ -37,7 +44,9 @@ public class Player : MonoBehaviour, IHuman
 	{
 		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
 
-		if (direction.magnitude > 0)
+		var isWalk = direction.magnitude > 0;
+		animator.SetParameter(HumanAnimator.Bools.Walk, isWalk);
+		if (isWalk)
 		{
 			rigidbody.velocity = direction * moveSpeed;
 		}
@@ -47,17 +56,14 @@ public class Player : MonoBehaviour, IHuman
 	{
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (gazeLevelPlane.Raycast(ray, out float hitdist))
+		{
 			transform.LookAt(ray.GetPoint(hitdist));
+		}
 	}
 
-	private void Shoot()
+	private void Attack()
 	{
-		if (Physics.Raycast(transform.position, transform.forward, out var hitInfo))
-		{
-			var zombie = hitInfo.collider.GetComponent<Zombie>();
-			if (zombie != null)
-				zombie.Damage();
-		}
+		crossbow.Shoot();
 	}
 
 	public void Damage()
