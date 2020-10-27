@@ -6,6 +6,7 @@ public class Talker : MonoBehaviour, IUsable
 {
 	[SerializeField] private bool isImportant;
 	[SerializeField] private float lifetimeDialog;
+	[SerializeField] private AudioClip talk;
 	[SerializeField] private List<string> phrases;
 
 	private int indexPhrase;
@@ -24,8 +25,8 @@ public class Talker : MonoBehaviour, IUsable
 			{
 				currentDialog.Hide();
 			}
+			Audio.Instance.PlaySound(talk, this.transform, true);
 			currentDialog = DialogCreator.Instance.CreateDialog(this.transform, phrases[indexPhrase], lifetimeDialog, isImportant);
-
 			indexPhrase++;
 		}
 	}

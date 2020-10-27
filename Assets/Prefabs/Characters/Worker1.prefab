@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isImportant: 1
   lifetimeDialog: 60
+  talk: {fileID: 8300000, guid: fd5f5eece0259564aa56734a2e737071, type: 3}
   phrases:
   - "\u041F\u0440\u0438\u0432\u0435\u0442!"
   - "\u041A\u0430\u043A \u0434\u0435\u043B\u0430?"

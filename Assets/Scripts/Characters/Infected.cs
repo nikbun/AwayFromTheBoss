@@ -15,6 +15,7 @@ public class Infected : MonoBehaviour
 	[SerializeField] private float strikesFrequency;
 	[SerializeField] private float findTargetRadius;
 	[SerializeField] private LayerMask findTargetMask;
+	[SerializeField] private RandomTalker randomTalker;
 
 	private NavMeshAgent navMeshAgent;
 	private float strikeTimer = 0f;
@@ -36,7 +37,11 @@ public class Infected : MonoBehaviour
 			if (FindTarget(out var target))
 			{
 				navMeshAgent.SetDestination(target);
-				
+				randomTalker.CanTalk = true;
+			}
+			else
+			{
+				randomTalker.CanTalk = false;
 			}
 			animator.SetParameter(HumanAnimator.Bools.Walk, navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance);
 
