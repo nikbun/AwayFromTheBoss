@@ -27,6 +27,12 @@ public class Player : MonoBehaviour, IHuman
 
 	private void Update()
 	{
+		//TODO Удалить
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			DialogSystem.Instance.CreateDialog(this.transform, "Привет мир!", 5);
+		}
+
 		if (Input.GetKeyDown(KeyCode.E) && usableCheker.IsUsable)
 		{
 			usableCheker.Use();

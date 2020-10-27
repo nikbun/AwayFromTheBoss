@@ -36,11 +36,6 @@ public class Audio : MonoBehaviour
 		DontDestroyOnLoad(this.gameObject);
 	}
 
-	public void Start()
-	{
-		CreateAudioSource();
-	}
-
 	public void PlayClickSound()
 	{
 		PlaySound(_clickSound);
@@ -48,29 +43,26 @@ public class Audio : MonoBehaviour
 
 	public void PlaySound(AudioClip audioClip, Transform parent = null, bool randomPitch = false)
 	{
-		var soundSource = CreateAudioSource(parent);
+		var audioSource = CreateAudioSource(parent != null);
+
+		audioSource.transform.SetParent(parent, false);
+
 		if (randomPitch)
 		{
-			soundSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+			audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
 		}
-		soundSource.PlayOneShot(audioClip);
-		Destroy(soundSource.gameObject, audioClip.length);
+		audioSource.PlayOneShot(audioClip);
+		Destroy(audioSource.gameObject, audioClip.length);
 	}
 
-	private AudioSource CreateAudioSource(Transform parent = null)
+	private AudioSource CreateAudioSource(bool isSpatial)
 	{
-		var isGlobal = parent == null;
-		if (isGlobal)
-		{
-			parent = this.transform;
-		}
-
-		var audioSourceObject = Instantiate(new GameObject("AudioSource"), parent);
+		var audioSourceObject = new GameObject("AudioSource");
 		var audioSource = audioSourceObject.AddComponent<AudioSource>();
 		audioSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups(soundMixerGroup).First();
 		audioSource.playOnAwake = false;
 
-		if (!isGlobal)
+		if (isSpatial)
 		{
 			audioSource.spatialBlend = 1f;
 			audioSource.maxDistance = 20f;
