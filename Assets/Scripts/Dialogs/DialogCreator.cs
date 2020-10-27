@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(RectTransform))]
-public class DialogSystem : MonoBehaviour
+public class DialogCreator : MonoBehaviour
 {
 	[SerializeField] private GameObject dialogSample;
+	[SerializeField] private RectTransform canvasTransform;
 
 	private RectTransform rectTransform;
 
-	public static DialogSystem Instance { get; private set; }
+	public static DialogCreator Instance { get; private set; }
 
 	private void Awake()
 	{
@@ -28,10 +29,11 @@ public class DialogSystem : MonoBehaviour
 		rectTransform = GetComponent<RectTransform>();	
 	}
 
-	public void CreateDialog(Transform transform, string text, float lifetime = 0)
+	public Dialog CreateDialog(Transform transform, string text, float lifetime = 0, bool isImportant = false)
 	{
 		var dialogObject = Instantiate(dialogSample, rectTransform);
 		var dialog = dialogObject.GetComponent<Dialog>();
-		dialog.Show(transform, text, lifetime);
+		dialog.Show(transform, text, lifetime, canvasTransform.lossyScale.x, isImportant);
+		return dialog;
 	}
 }

@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanAnimator : AbstractAnimator<Enum, Enum, HumanAnimator.Bools, HumanAnimator.Trigers>
+public class DialogAnimator : AbstractAnimator<Enum, Enum, DialogAnimator.Bools, Enum>
 {
 	public enum Bools
 	{
-		Walk
+		Important
 	}
 
 	public enum Trigers
 	{
-		Sneeze,
-		Death
+		Hide
 	}
 }

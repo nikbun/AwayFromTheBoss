@@ -16,7 +16,7 @@ public abstract class AbstractAnimator<F, I, B, T> : MonoBehaviour where F : Enu
 {
 	private Animator _animator;
 
-	private void Start()
+	private void Awake()
 	{
 		_animator = GetComponent<Animator>();
 		CheckParameters(typeof(F));
@@ -57,5 +57,19 @@ public abstract class AbstractAnimator<F, I, B, T> : MonoBehaviour where F : Enu
 				}
 			}
 		}
+	}
+
+	/// <summary>
+	/// Для привязки звука к событиям анимации
+	/// </summary>
+	/// <param name="clip"></param>
+	public void PlaySound(AudioClip clip)
+	{
+		Audio.Instance.PlaySound(clip, transform);
+	}
+
+	public void PlaySoundRandomPitch(AudioClip clip)
+	{
+		Audio.Instance.PlaySound(clip, transform, true);
 	}
 }
