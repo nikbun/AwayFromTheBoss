@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2339647996841619486}
   usableCheker: {fileID: 4008861368594765894}
-  maxHealth: 3
+  maxMascCount: 3
   moveSpeed: 5
   crossbow: {fileID: 0}
 --- !u!1 &4008861368594765893

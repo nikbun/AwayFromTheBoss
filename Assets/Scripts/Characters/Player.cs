@@ -3,24 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour, IHuman
 {
 	[SerializeField] private HumanAnimator animator;
 	[SerializeField] private UsableCheker usableCheker;
-	[SerializeField] private float maxHealth;
+	[SerializeField] private int maxMascCount;
 	[SerializeField] private float moveSpeed;
 	[Space]
 	[SerializeField] private Crossbow crossbow;
 
 	private Rigidbody rigidbody;
-	private float health;
+	private int mascCount;
 	private Plane gazeLevelPlane;
+
+	/// <summary>
+	/// Текущее и максимальное число
+	/// </summary>
+	public event UnityAction<int, int> UpdateMaskCount;
 
 	private void Start()
 	{
-		health = maxHealth;
+		mascCount = maxMascCount;
+		UpdateMaskCount(mascCount, maxMascCount);
 		rigidbody = GetComponent<Rigidbody>();
 		gazeLevelPlane = new Plane(Vector3.up, transform.position);
 	}
@@ -68,7 +75,19 @@ public class Player : MonoBehaviour, IHuman
 
 	public void Damage()
 	{
-		health--;
-		Debug.Log(String.Format("-1 здоровье игрока. \n Осталось: {0}", health));
+		if (mascCount == 0)
+		{
+			Die();
+		}
+		else
+		{
+			mascCount--;
+			UpdateMaskCount?.Invoke(mascCount, maxMascCount);
+		}
+	}
+
+	private void Die()
+	{
+		Debug.Log("Конец игры!");
 	}
 }
