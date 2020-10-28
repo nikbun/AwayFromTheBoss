@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class MaskIndicator : MonoBehaviour
 {
-	[SerializeField] private Player player;
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private TMP_Text TMPText;
 
 	private void Awake()
 	{
-		player.UpdateMaskCount += UpdateMaskCount;
+		inventory.UpdateMaskCount += UpdateMaskCount;
 	}
 
-	public void UpdateMaskCount(int count, int maxCount)
+	public void UpdateMaskCount()
 	{
-		TMPText.text = string.Format("Маски - {0}/{1}", count, maxCount);
+		TMPText.text = string.Format("Маски - {0}/{1}", inventory.MaskCount, inventory.MaxMaskCount); // TODO Локализация
 	}
 }

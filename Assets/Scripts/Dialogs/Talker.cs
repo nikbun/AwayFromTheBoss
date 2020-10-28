@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Talker : MonoBehaviour, IUsable
@@ -7,16 +8,24 @@ public class Talker : MonoBehaviour, IUsable
 	[SerializeField] private bool isImportant;
 	[SerializeField] private float lifetimeDialog;
 	[SerializeField] private AudioClip talk;
-	[SerializeField] private List<string> phrases;
+	[SerializeField] private List<PhrasesKit> phraseKits;
 
-	private int indexPhrase;
 	private Dialog currentDialog;
+
+	private PhrasesKit CurrentPhrasesKit => phraseKits.First();
 
 	public void Use()
 	{
-		if (indexPhrase >= phrases.Count)
+		if (CurrentPhrasesKit.IsEnded)
 		{
-			indexPhrase = 0;
+			if (phraseKits.Count > 1)
+			{
+				phraseKits.Remove(CurrentPhrasesKit);
+			}
+			else
+			{
+				CurrentPhrasesKit.ResetPhrases();
+			}
 			currentDialog.Hide();
 		}
 		else
@@ -25,9 +34,17 @@ public class Talker : MonoBehaviour, IUsable
 			{
 				currentDialog.Hide();
 			}
-			Audio.Instance.PlaySound(talk, this.transform, true);
-			currentDialog = DialogCreator.Instance.CreateDialog(this.transform, phrases[indexPhrase], lifetimeDialog, isImportant);
-			indexPhrase++;
+			var phrase = CurrentPhrasesKit.GetNextPhrase();
+			if (phrase != "")
+			{
+				Audio.Instance.PlaySound(talk, this.transform, true);
+				currentDialog = DialogCreator.Instance.CreateDialog(this.transform, phrase, lifetimeDialog, isImportant);
+			}
 		}
+	}
+
+	public void AddPhrasesKit(PhrasesKit kit)
+	{
+		phraseKits.Add(kit);
 	}
 }

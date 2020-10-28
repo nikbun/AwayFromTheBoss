@@ -13,6 +13,6 @@ public class PrefabSavingUtil {
         if (savePrefabMethod == null)
             throw new InvalidOperationException();
 
-        savePrefabMethod.Invoke(prefabStage, null);
+        savePrefabMethod?.Invoke(prefabStage, null);
     }
 }

@@ -9,25 +9,19 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour, IHuman
 {
 	[SerializeField] private HumanAnimator animator;
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private UsableCheker usableCheker;
-	[SerializeField] private int maxMascCount;
+	[SerializeField] private PickUpFinder pickUpFinder;
 	[SerializeField] private float moveSpeed;
 	[Space]
 	[SerializeField] private Crossbow crossbow;
 
 	private Rigidbody rigidbody;
-	private int mascCount;
 	private Plane gazeLevelPlane;
-
-	/// <summary>
-	/// Текущее и максимальное число
-	/// </summary>
-	public event UnityAction<int, int> UpdateMaskCount;
 
 	private void Start()
 	{
-		mascCount = maxMascCount;
-		UpdateMaskCount(mascCount, maxMascCount);
+		pickUpFinder.PickUpEvent += inventory.PickUpItem;
 		rigidbody = GetComponent<Rigidbody>();
 		gazeLevelPlane = new Plane(Vector3.up, transform.position);
 	}
@@ -75,14 +69,13 @@ public class Player : MonoBehaviour, IHuman
 
 	public void Damage()
 	{
-		if (mascCount == 0)
+		if (inventory.MaskCount == 0)
 		{
 			Die();
 		}
 		else
 		{
-			mascCount--;
-			UpdateMaskCount?.Invoke(mascCount, maxMascCount);
+			inventory.MaskCount--;
 		}
 	}
 
