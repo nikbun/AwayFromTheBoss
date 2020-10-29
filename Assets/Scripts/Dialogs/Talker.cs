@@ -43,8 +43,12 @@ public class Talker : MonoBehaviour, IUsable
 		}
 	}
 
-	public void AddPhrasesKit(PhrasesKit kit)
+	public void AddPhrasesKit(PhrasesKit kit, bool cleatOld = false)
 	{
+		if (cleatOld)
+		{
+			phraseKits.Clear();
+		}
 		phraseKits.Add(kit);
 	}
 }

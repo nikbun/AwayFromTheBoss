@@ -19,9 +19,11 @@ public class Player : MonoBehaviour, IHuman
 
 	private Rigidbody rigidbody;
 	private Plane gazeLevelPlane;
+	private Vector3 spawnPosition;
 
 	private void Start()
 	{
+		spawnPosition = transform.position;
 		pickUpFinder.PickUpEvent += inventory.PickUpItem;
 		rigidbody = GetComponent<Rigidbody>();
 		gazeLevelPlane = new Plane(Vector3.up, new Vector3(transform.position.x, sightHeight, transform.position.y));
@@ -80,8 +82,17 @@ public class Player : MonoBehaviour, IHuman
 		}
 	}
 
-	private void Die()
+	public void Die()
 	{
+		StartCoroutine(Dying());
+	}
+
+	private IEnumerator Dying()
+	{
+		gameObject.layer = 0;
+		yield return new WaitForSeconds(1);
+		gameObject.layer = 8;
+		transform.position = spawnPosition;
 		Debug.Log("Конец игры!");
 	}
 }

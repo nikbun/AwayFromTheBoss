@@ -65,7 +65,7 @@ public class Audio : MonoBehaviour
 		if (isSpatial)
 		{
 			audioSource.spatialBlend = 1f;
-			audioSource.maxDistance = 20f;
+			audioSource.maxDistance = 30f;
 			audioSource.rolloffMode = AudioRolloffMode.Custom;
 		}
 

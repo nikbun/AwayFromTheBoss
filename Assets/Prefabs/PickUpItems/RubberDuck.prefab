@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1817906335931344229
+--- !u!1 &644258477010636951
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3414249645852350326}
-  - component: {fileID: 6760218078759367891}
+  - component: {fileID: 4515848681065685636}
   m_Layer: 0
-  m_Name: Door
+  m_Name: RubberDuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3414249645852350326
+--- !u!4 &4515848681065685636
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817906335931344229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.599636, y: 0.5, z: 0.7518501}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_GameObject: {fileID: 644258477010636951}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.49572, y: 0.5, z: -2.506277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5120318139754218574}
+  - {fileID: 6252504527611916732}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6760218078759367891
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817906335931344229}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2211342, y: 3.6142592, z: 0.2690395}
-  m_Center: {x: -0.008600235, y: 1.7973025, z: -0.004299879}
---- !u!1 &5275626673006854392
+--- !u!1 &6412166014413845770
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,45 +39,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5120318139754218574}
-  - component: {fileID: 5570889739781722269}
-  - component: {fileID: 3777786139844525165}
+  - component: {fileID: 6252504527611916732}
+  - component: {fileID: 6666905481691309423}
+  - component: {fileID: 2713201068615780767}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5120318139754218574
+--- !u!4 &6252504527611916732
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275626673006854392}
+  m_GameObject: {fileID: 6412166014413845770}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3414249645852350326}
+  m_Father: {fileID: 4515848681065685636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5570889739781722269
+--- !u!33 &6666905481691309423
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275626673006854392}
-  m_Mesh: {fileID: -2432090755550338912, guid: bce02a56e52c14d42849741e06d55bcf, type: 3}
---- !u!23 &3777786139844525165
+  m_GameObject: {fileID: 6412166014413845770}
+  m_Mesh: {fileID: -2432090755550338912, guid: 471d2883df253b24aa6abc81a0f61c8e, type: 3}
+--- !u!23 &2713201068615780767
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275626673006854392}
+  m_GameObject: {fileID: 6412166014413845770}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -103,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6e7d43d9d4d81a4cbe6329029d40d5d, type: 2}
+  - {fileID: 2100000, guid: ffe1ed6fd7f23f845b153a6c8006f48c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
