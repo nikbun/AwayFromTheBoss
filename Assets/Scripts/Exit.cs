@@ -6,9 +6,11 @@ public class Exit : MonoBehaviour
 {
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.GetComponent<Player>())
-		{
-			Debug.Log("Выход найден!");
-		}
+		
+	}
+
+	public void OpenDoor()
+	{
+
 	}
 }

@@ -9,6 +9,7 @@ public class MainQuest : MonoBehaviour
 	[SerializeField] private GameObject benefit;
 	[SerializeField] private Talker seregaTalker;
 	[SerializeField] private Talker auntLubaTalker;
+	[SerializeField] private Talker volodyaTalker;
 	[Header("Нашел справку")]
 	[SerializeField] private PhrasesKit seregaFindBenefitList;
 	[Space]
@@ -16,6 +17,7 @@ public class MainQuest : MonoBehaviour
 	[SerializeField] private PhrasesKit auntLubaGoHome;
 	[Header("Получил пособие")]
 	[SerializeField] private PhrasesKit seregaEndDay;
+	[SerializeField] private PhrasesKit volodyaGoodBy;
 
 	private QuestItem benefitList;
 
@@ -41,6 +43,7 @@ public class MainQuest : MonoBehaviour
 	public void GetBenefit()
 	{
 		seregaTalker.AddPhrasesKit(seregaEndDay);
+		volodyaTalker.AddPhrasesKit(volodyaGoodBy, true);
 	}
 
 	public void GoHome()
