@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 
+/// <summary>
+/// Этот скрипт я назвал - "Прощай номинация на чистый код")
+/// </summary>
 [RequireComponent(typeof(NavMeshAgent), typeof(Collider))]
 public class Boss : MonoBehaviour
 {

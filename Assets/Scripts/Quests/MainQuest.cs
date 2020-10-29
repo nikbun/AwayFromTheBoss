@@ -7,6 +7,8 @@ public class MainQuest : MonoBehaviour
 	[SerializeField] private Inventory playerInventory;
 	[SerializeField] private PickUpQuestItem benefitListPU;
 	[SerializeField] private GameObject benefit;
+	[SerializeField] private Exit exit;
+	[SerializeField] private GameObject EndSplashScreen;
 	[SerializeField] private Talker seregaTalker;
 	[SerializeField] private Talker auntLubaTalker;
 	[SerializeField] private Talker volodyaTalker;
@@ -44,10 +46,11 @@ public class MainQuest : MonoBehaviour
 	{
 		seregaTalker.AddPhrasesKit(seregaEndDay);
 		volodyaTalker.AddPhrasesKit(volodyaGoodBy, true);
+		exit.OpenDoor();
 	}
 
 	public void GoHome()
 	{
-
+		EndSplashScreen.SetActive(true);
 	}
 }
