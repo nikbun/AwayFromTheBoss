@@ -7,8 +7,7 @@ public class Spawner : MonoBehaviour
 	[SerializeField] private GameObject spawnObject;
 	[SerializeField] private float minTimeSpawn;
 	[SerializeField] private float maxTimeSpawn;
-
-	private GameObject spavnedGameObject;
+	[SerializeField] private GameObject spavnedGameObject;
 
 	private void Start()
 	{

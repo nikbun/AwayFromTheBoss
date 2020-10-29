@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119678117271564519}
-  m_Mesh: {fileID: -2432090755550338912, guid: 0f88559ac3e433846aec73866b32cfa8, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 7d71e7c7057ac8a448d23dc2e0c3fa4c, type: 3}
 --- !u!23 &9003399782280858738
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ce0c8cb3f1fdd240bdd811a6d034571, type: 2}
+  - {fileID: 2100000, guid: 3fb1dd2c5b0dc434a8c3924ba31122bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6281527517297842345}
   - component: {fileID: 3535140214563849416}
   - component: {fileID: 981354957}
+  - component: {fileID: 477907036676725896}
   m_Layer: 0
   m_Name: Infected
   m_TagString: Untagged
@@ -239,3 +240,19 @@ MonoBehaviour:
   - "\u0414\u0430\u0439 \u0440\u0443\u043A\u0443 \u043F\u043E\u0436\u043C\u0443"
   - "\u0414\u0430 \u044F \u043D\u0435 \u0437\u0430\u0440\u0430\u0437\u043D\u044B\u0439"
   - "\u041A\u0445\u0435-\u043A\u0445\u0435"
+--- !u!54 &477907036676725896
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883218657015960954}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, IHuman
 	[SerializeField] private float moveSpeed;
 	[Space]
 	[SerializeField] private Crossbow crossbow;
+	[SerializeField] private float sightHeight;
 
 	private Rigidbody rigidbody;
 	private Plane gazeLevelPlane;
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour, IHuman
 	{
 		pickUpFinder.PickUpEvent += inventory.PickUpItem;
 		rigidbody = GetComponent<Rigidbody>();
-		gazeLevelPlane = new Plane(Vector3.up, transform.position);
+		gazeLevelPlane = new Plane(Vector3.up, new Vector3(transform.position.x, sightHeight, transform.position.y));
 	}
 
 	private void Update()

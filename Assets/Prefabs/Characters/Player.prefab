@@ -149,6 +149,7 @@ MonoBehaviour:
   pickUpFinder: {fileID: 953975995732023723}
   moveSpeed: 5
   crossbow: {fileID: 0}
+  sightHeight: 1
 --- !u!114 &178920063462196438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ GameObject:
   - component: {fileID: 4008861368594765895}
   - component: {fileID: 4008861368594765894}
   - component: {fileID: 953975995732023723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UsableCheker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +245,7 @@ GameObject:
   - component: {fileID: 6765734477076716601}
   - component: {fileID: 6315303569440475370}
   - component: {fileID: 3352602180620968986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
