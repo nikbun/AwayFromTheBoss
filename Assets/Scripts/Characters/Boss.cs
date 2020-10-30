@@ -87,8 +87,10 @@ public class Boss : MonoBehaviour
 			var foundTarget = foundTargets.First();
 			if (Physics.Raycast(
 				new Ray(transform.position, foundTarget.transform.position - transform.position), 
-				out var hitInfo, 
-				OpaqueMask + findTargetMask))
+				out var hitInfo,
+				1000,
+				OpaqueMask + findTargetMask,
+				QueryTriggerInteraction.Ignore))
 			{
 				if (hitInfo.collider == foundTarget)
 				{

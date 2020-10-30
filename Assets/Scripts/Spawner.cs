@@ -8,6 +8,10 @@ public class Spawner : MonoBehaviour
 	[SerializeField] private float minTimeSpawn;
 	[SerializeField] private float maxTimeSpawn;
 	[SerializeField] private GameObject spavnedGameObject;
+	[Tooltip("В присутствии кого нелься спавнить")]
+	[SerializeField] private LayerMask notSpawnInPresenceMask;
+	[Tooltip("Радиус поиска, того при ком нельзя спавнить")]
+	[SerializeField] private float notSpawnInPresenceRadius;
 
 	private void Start()
 	{
@@ -19,7 +23,10 @@ public class Spawner : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-			if (spavnedGameObject == null)
+
+			var foundTargets = Physics.OverlapSphere(transform.position, notSpawnInPresenceRadius, notSpawnInPresenceMask);
+
+			if (spavnedGameObject == null && foundTargets.Length == 0)
 			{
 				spavnedGameObject = Instantiate(spawnObject, transform);
 			}

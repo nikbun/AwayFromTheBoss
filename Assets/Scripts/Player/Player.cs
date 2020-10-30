@@ -90,9 +90,12 @@ public class Player : MonoBehaviour, IHuman
 	private IEnumerator Dying()
 	{
 		gameObject.layer = 0;
-		yield return new WaitForSeconds(1);
-		gameObject.layer = 8;
+		yield return new WaitForFixedUpdate();
+		rigidbody.isKinematic = true;
 		transform.position = spawnPosition;
+		yield return new WaitForSeconds(1);
+		rigidbody.isKinematic = false;
+		gameObject.layer = 8;
 		Debug.Log("Конец игры!");
 	}
 }

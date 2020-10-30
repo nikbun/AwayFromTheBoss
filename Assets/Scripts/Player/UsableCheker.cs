@@ -7,7 +7,7 @@ public class UsableCheker : MonoBehaviour
 {
 	private IUsable usable;
 
-	public bool IsUsable => usable != null;
+	public bool IsUsable => !usable.Equals(null);/*usable != null;*/ //TODO: Баг, поле ссылается на удаленный объект
 
 	private void OnTriggerEnter(Collider other)
 	{

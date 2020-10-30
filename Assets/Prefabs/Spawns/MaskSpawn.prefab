@@ -96,3 +96,8 @@ MonoBehaviour:
     type: 3}
   minTimeSpawn: 10
   maxTimeSpawn: 20
+  spavnedGameObject: {fileID: 0}
+  notSpawnInPresenceMask:
+    serializedVersion: 2
+    m_Bits: 256
+  notSpawnInPresenceRadius: 15

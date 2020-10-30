@@ -9,6 +9,10 @@ public class MainQuest : MonoBehaviour
 	[SerializeField] private GameObject benefit;
 	[SerializeField] private Exit exit;
 	[SerializeField] private GameObject EndSplashScreen;
+	[SerializeField] private AudioSource paradiseChorus;
+	[SerializeField] private GameObject wave2;
+	[SerializeField] private GameObject wave3;
+	[Space]
 	[SerializeField] private Talker seregaTalker;
 	[SerializeField] private Talker auntLubaTalker;
 	[SerializeField] private Talker volodyaTalker;
@@ -34,12 +38,14 @@ public class MainQuest : MonoBehaviour
 		seregaTalker.AddPhrasesKit(seregaFindBenefitList, true);
 		auntLubaTalker.AddPhrasesKit(auntLubaGetBenefit, true);
 		auntLubaTalker.AddPhrasesKit(auntLubaGoHome);
+		wave2.SetActive(true);
 	}
 
 	public void TalkWithAuntLuba()
 	{
 		playerInventory.RemoveQuestItem(benefitList);
 		benefit.SetActive(true);
+		wave3.SetActive(true);
 	}
 
 	public void GetBenefit()
@@ -52,5 +58,6 @@ public class MainQuest : MonoBehaviour
 	public void GoHome()
 	{
 		EndSplashScreen.SetActive(true);
+		paradiseChorus.Stop();
 	}
 }
