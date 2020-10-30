@@ -31,8 +31,8 @@ public class MainQuest : MonoBehaviour
 	public void GetBenefitList() 
 	{
 		benefitList = benefitListPU.GetQuestItem();
-		seregaTalker.AddPhrasesKit(seregaFindBenefitList);
-		auntLubaTalker.AddPhrasesKit(auntLubaGetBenefit);
+		seregaTalker.AddPhrasesKit(seregaFindBenefitList, true);
+		auntLubaTalker.AddPhrasesKit(auntLubaGetBenefit, true);
 		auntLubaTalker.AddPhrasesKit(auntLubaGoHome);
 	}
 
@@ -44,7 +44,7 @@ public class MainQuest : MonoBehaviour
 
 	public void GetBenefit()
 	{
-		seregaTalker.AddPhrasesKit(seregaEndDay);
+		seregaTalker.AddPhrasesKit(seregaEndDay, true);
 		volodyaTalker.AddPhrasesKit(volodyaGoodBy, true);
 		exit.OpenDoor();
 	}

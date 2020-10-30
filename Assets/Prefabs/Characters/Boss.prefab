@@ -230,7 +230,7 @@ MonoBehaviour:
   animator: {fileID: 6281527517297842345}
   maxHealth: 10000
   strikesFrequency: 2
-  findTargetRadius: 10
+  findTargetRadius: 20
   findTargetMask:
     serializedVersion: 2
     m_Bits: 256
