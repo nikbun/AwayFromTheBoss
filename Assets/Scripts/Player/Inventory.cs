@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
 	private List<QuestItem> questItems = new List<QuestItem>();
 
 	public event UnityAction UpdateMaskCount;
+	public event UnityAction UpdateInventory;
 
 	public int MaskCount
 	{
@@ -23,6 +24,8 @@ public class Inventory : MonoBehaviour
 	}
 
 	public int MaxMaskCount => maxMaskCount;
+
+	public IEnumerable<QuestItem> Items => questItems;
 
 
 	private void Start()
@@ -43,14 +46,21 @@ public class Inventory : MonoBehaviour
 		var questItem = item as PickUpQuestItem;
 		if (questItem != null)
 		{
-			questItems.Add(questItem.GetQuestItem());
+			AddQuestItem(questItem.GetQuestItem());
 			questItem.PickUp();
 			return;
 		}
 	}
 
+	public void AddQuestItem(QuestItem item)
+	{
+		questItems.Add(item);
+		UpdateInventory?.Invoke();
+	}
+
 	public void RemoveQuestItem(QuestItem item)
 	{
 		questItems.Remove(item);
+		UpdateInventory?.Invoke();
 	}
 }

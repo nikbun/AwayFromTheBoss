@@ -93,6 +93,8 @@ GameObject:
   - component: {fileID: 5832055251512771213}
   - component: {fileID: 5300968979335845127}
   - component: {fileID: 2163911547601155746}
+  - component: {fileID: 6401157254670075641}
+  - component: {fileID: 6294107820422897965}
   m_Layer: 0
   m_Name: Anya
   m_TagString: Untagged
@@ -107,7 +109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8430142400708086793}
-  m_LocalRotation: {x: -0, y: 0.8316863, z: -0, w: -0.5552458}
+  m_LocalRotation: {x: 0, y: 0.8316878, z: -0, w: -0.55524355}
   m_LocalPosition: {x: 60.88, y: 0.5, z: 39.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -189,9 +191,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f483beb5fd121874d808a66147c3d3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameKit: "\u0423 \u043D\u0430\u0441 \u0441\u043E\u0432\u0435\u0449\u0430\u043D\u0438\u0435"
+  nameKit: "\u041F\u043E\u0442\u0435\u0440\u044F\u043B\u0430 \u041D\u0430\u0442\u0430\u0448\u0443"
   phrases:
   - "\u041F\u0440\u0438\u0432\u0435\u0442\u0438\u043A"
+  - "\u0422\u044B \u043D\u0435 \u0432\u0438\u0434\u0435\u043B \u041D\u0430\u0442\u0430\u0448\u0443?"
+  - "\u0415\u0441\u043B\u0438 \u043D\u0430\u0439\u0434\u0435\u0448\u044C \u0435\u0435..."
+  - "\u0414\u0430\u0439 \u043C\u043D\u0435 \u0437\u043D\u0430\u043A"
+  - "\u0421\u043F\u0430\u0441\u0438\u0431\u043E"
+  EndKitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6401157254670075641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430142400708086793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f483beb5fd121874d808a66147c3d3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameKit: "\u041D\u0430\u0448\u0435\u043B \u041D\u0430\u0442\u0430\u0448\u0443"
+  phrases:
+  - "\u041E, \u0442\u044B \u043D\u0430\u0448\u0435\u043B \u041D\u0430\u0442\u0430\u0448\u0443!"
+  - "\u0421\u043F\u0430\u0441\u0438\u0431\u043E!"
+  - :-*
+  - "\u041A\u0430\u043A \u0436\u0435 \u0442\u044B \u0431\u0435\u0437 \u043C\u0435\u043D\u044F
+    \u0431\u044B\u043B\u0430?"
+  - "\u0411\u043E\u043B\u044C\u0448\u0435 \u043D\u0435 \u0442\u0435\u0440\u044F\u0439\u0441\u044F!"
+  EndKitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6294107820422897965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430142400708086793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f483beb5fd121874d808a66147c3d3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameKit: "\u0423\u0442\u043E\u0447\u043A\u0430"
+  phrases:
+  - "\u0423\u0442\u043E\u0447\u043A\u0430"
   EndKitEvent:
     m_PersistentCalls:
       m_Calls: []

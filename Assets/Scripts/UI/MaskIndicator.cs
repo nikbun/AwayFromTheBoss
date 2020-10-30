@@ -8,9 +8,14 @@ public class MaskIndicator : MonoBehaviour
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TMP_Text TMPText;
 
-	private void Awake()
+	private void OnEnable()
 	{
 		inventory.UpdateMaskCount += UpdateMaskCount;
+	}
+
+	private void OnDisable()
+	{
+		inventory.UpdateMaskCount -= UpdateMaskCount;
 	}
 
 	public void UpdateMaskCount()
